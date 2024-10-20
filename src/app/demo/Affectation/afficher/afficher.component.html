@@ -1,0 +1,94 @@
+<div class="row">
+    <!-- [ basic-collapse ] start -->
+    <div class="col-sm-12">
+        
+        <div class="col-xl-12">
+          <app-card cardTitle="Hover Table" [options]="false" blockClass="table-border-style">
+            <div class="table-responsive">
+                <div class="row g-3">
+                    <div class="col-xl-2 col-lg-4">
+                      <input type="search" class="form-control" id="searchInput" placeholder="Search for ...">
+                    </div>
+                    <div class="col-xl-2 col-lg-4">
+                        <select class="form-select" id="idStatus" aria-label="Default select example"  >
+                            <option value="select" selected>Selectionner lieu</option>
+                          
+                        </select>
+                      </div>
+                    
+
+                      <div class="col-xl-2 col-lg-4">
+                        <select class="form-select" id="idType"  aria-label="Default select example" >
+                            <option value="select" selected>Selectionner Durée</option>
+                          
+                          
+                        </select>
+                      </div>
+
+                      <div class="col-xl-2 col-lg-4">
+                        <select class="form-select" id="idType"  aria-label="Default select example" >
+                            <option value="select" selected>Selectionner Durée</option>
+                          
+                          
+                        </select>
+                      </div>
+                    <div class="col-xl-2 col-lg-4">
+                      <div id="datepicker1">
+                        <input type="date" placeholder="Datepicker"   class="form-control " bsDatepicker >
+        
+                      </div><!-- input-group -->
+                    </div>
+                    
+                    
+                    
+                    <div class="col-xl-1 col-lg-4">
+                      <button type="button" class="btn btn-soft-secondary w-100"><i class="mdi mdi-filter-outline align-middle"></i> Filter</button>
+                    </div>
+                  </div>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Groupe</th>
+                    <th>Coach</th>
+                    <th>Stade</th>
+                    <th>Responsable</th>
+                    <th>Date</th>
+                    <th>Heure debut</th>
+                    <th>Heure fin</th>
+                    
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of reservations">
+                    <th scope="row">1</th>
+                    <td>{{item?.groupe?.name}}</td>
+                    <td>{{item?.coach?.name}}</td>
+                    <td>{{item?.stade?.num_stade}}</td>
+                    <td>{{item?.admin?.name}}</td>
+                    <td>{{item.date}}</td>
+                    <td>{{item.heure_deb}}</td>
+                    <td>{{item.heure_fin}}</td>
+                    
+                    <td>
+                      <button type="button" class="btn btn-icon btn-success d-inline-flex">
+                        <i class="feather icon-edit"></i>
+                      </button>
+                      <button type="button" class="btn btn-icon btn-danger d-inline-flex">
+                        <i class="feather icon-delete"></i>
+                      </button>
+                    </td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            </div>
+          </app-card>
+        </div>
+  
+    </div>
+    
+    
+  </div>
+  

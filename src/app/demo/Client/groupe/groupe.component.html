@@ -1,0 +1,77 @@
+<div class="row">
+    <!-- [ basic-collapse ] start -->
+    <div class="col-sm-12">
+        
+        <div class="col-xl-12">
+            <button type="button" class="btn btn-icon btn-success d-inline-flex" (click)="openModal(NewGroup)">
+                <i class="feather icon-plus"></i>
+              </button>
+          <app-card cardTitle="Hover Table" [options]="false" blockClass="table-border-style">
+            
+            <div class="table-responsive">
+                
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Nombre</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of groupes">
+                    <th scope="row">1</th>
+                    <td>{{item.name}}</td>
+                    <td>{{item.clientList.length}}</td>
+                    <td>
+                      <button type="button" class="btn btn-icon btn-success d-inline-flex">
+                        <i class="feather icon-edit"></i>
+                      </button>
+                      <button type="button" class="btn btn-icon btn-danger d-inline-flex">
+                        <i class="feather icon-delete"></i>
+                      </button>
+                    </td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            </div>
+          </app-card>
+        </div>
+  
+    </div>
+    
+    
+  </div>
+  
+
+
+
+  <ng-template #NewGroup role="NewGroup" let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="NewEducationModalLabel">Ajouter un groupe</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal" (click)="modalRef?.hide()"></button>
+    </div>
+    <form (ngSubmit)="saveGroupe()" [formGroup]="groupForm">
+      <div class="modal-body">
+        
+        
+  
+        <div class="mb-3">
+          <label for="customername-field" class="form-label">Nom</label>
+          <input type="text" id="name" class="form-control" placeholder="Entrer le nom du groupe" required formControlName="name"  />
+          
+        </div>
+  
+        
+  
+      </div>
+      <div class="modal-footer">
+        <div class="hstack gap-2 justify-content-end">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal" (click)="modalRef?.hide()">Annuler</button>
+          <button type="submit" class="btn btn-success" id="add-btn">Ajouter compétence</button>
+        </div>
+      </div>
+    </form>
+  </ng-template>

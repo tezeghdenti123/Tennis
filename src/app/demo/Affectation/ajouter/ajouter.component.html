@@ -1,0 +1,56 @@
+<div class="row btn-page">
+    <div class="col-sm-12">
+      <app-card cardTitle="Basic Badges" [options]="false" blockClass="pt-0">
+        <hr />
+        <form [formGroup]="reservationForm" (ngSubmit)="saveAffectation()">
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Date</label>
+              <input type="date" class="form-control" formControlName="date" id="inputEmail4" placeholder="Name" [ngClass]="{ 'is-invalid': submitted && reservationForm.get('date')?.errors }" />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputPassword4">Debut</label>
+              <input type="time" formControlName="heure_deb" class="form-control" id="inputPassword4" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && reservationForm.get('heure_deb')?.errors }" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Fin</label>
+              <input type="time" class="form-control" formControlName="heure_fin" id="inputEmail4" placeholder="Email"  [ngClass]="{ 'is-invalid': submitted && reservationForm.get('heure_fin')?.errors }" />
+            </div>
+            <div class="form-group col-md-6" formGroupName="groupe">
+              <label for="inputState">Groupe</label>
+              <select id="inputState" class="form-control" (change)="groupeSelected()" formControlName="id"  [ngClass]="{ 'is-invalid': submitted && reservationForm.get('groupe.id')?.errors||groupeNotFree }">
+                <option value="" selected>select</option>
+                <option  [value]="item.id" *ngFor="let item of groupes">{{item.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6" formGroupName="coach">
+              <label for="inputState">Coach</label>
+              <select id="inputState" class="form-control" (change)="coachSelected()" formControlName="id" [ngClass]="{ 'is-invalid': submitted && reservationForm.get('coach.id')?.errors||coachNotFree }">
+                <option value="" selected>select</option>
+                <option  [value]="item.id" *ngFor="let item of coaches">{{item.name}}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6" formGroupName="stade">
+                <label for="inputState">Stade</label>
+                <select id="inputState" class="form-control" (change)="selectStade()" formControlName="id" [ngClass]="{ 'is-invalid': submitted && reservationForm.get('stade.id')?.errors||stadeNotFree }">
+                  <option value="" selected>select</option>
+                  <option  [value]="item.id" *ngFor="let item of stades">{{item.num_stade}}</option>
+                </select>
+              </div>
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck" />
+              <label class="form-check-label" for="gridCheck">Check me out</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </app-card>
+    </div>
+  </div>
+  

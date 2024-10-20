@@ -1,0 +1,41 @@
+<div class="row btn-page">
+  <div class="col-sm-12">
+    <app-card cardTitle="Basic Badges" [options]="false" blockClass="pt-0">
+      <div class="button-container">
+        <button class="circular-button button-1" (click)="onButtonClick(stades[0].id,stades[0].num_stade)">S{{stades[0].num_stade}}</button>
+        <button class="circular-button button-2" (click)="onButtonClick(stades[1].id,stades[1].num_stade)">S{{stades[1].num_stade}}</button>
+        <button class="circular-button button-3" (click)="onButtonClick(stades[2].id,stades[2].num_stade)">S{{stades[2].num_stade}}</button>
+        <button class="circular-button button-4" (click)="onButtonClick(stades[3].id,stades[3].num_stade)">S{{stades[3].num_stade}}</button>
+      </div>
+      
+<div class="calendar">
+  <!-- Loop through the days of the week -->
+  <div *ngFor="let day of daysOfWeek" class="day-column">
+
+    <div class="day-header">{{ day }}</div>
+     
+    <!-- Loop through each hour of the day -->
+    <div *ngFor="let hour of hoursInDay" class="hour-slot">
+      <span *ngIf="isitside(day)" class="hour">
+        <b>{{hour}}</b>
+        
+      </span>
+      <!-- Display concatenated event names for this day and hour -->
+      <div [ngClass]="getClass(currentClass)" *ngIf="isThereEvent(day,hour)">
+        <div style="color: rgb(255, 255, 255);margin-left:10px"  *ngFor="let item of getEventsForDayAndHour(day, hour)">
+          
+          <div class="name">
+            {{ item[0] }}
+          </div>
+          <div class="periode">
+            ({{ item[1]}} -> {{item[2] }})
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </app-card>
+  </div>
+</div>
+

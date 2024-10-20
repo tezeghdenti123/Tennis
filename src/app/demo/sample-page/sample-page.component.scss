@@ -1,0 +1,179 @@
+/* Calendar Container */
+.calendar {
+  display: grid;
+  grid-template-columns: 0.5fr repeat(7, 1fr); /* Default for larger screens */
+  gap: 1px;
+  width: 100%;
+  border: 2px solid #63abff;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+/* Media query for iPhone (max-width: 767px) */
+@media (max-width: 767px) {
+  .calendar {
+      grid-template-columns: repeat(4, 1fr); /* Show 4 columns for larger mobile screens */
+  }
+}
+
+/* Media query for smaller devices (max-width: 576px) */
+@media (max-width: 576px) {
+  .calendar {
+      grid-template-columns: repeat(2, 1fr); /* Show 2 columns for smaller mobile screens */
+      overflow-x: auto; /* Allow horizontal scrolling for remaining columns */
+  }
+}
+
+/* Media query for very small devices (max-width: 375px) */
+@media (max-width: 375px) {
+  .calendar {
+      grid-template-columns: 1fr; /* Stack columns vertically on very small screens */
+  }
+}
+
+/* Day Column */
+.day-column {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #63abff;
+  background-color: #ffffff;
+}
+
+/* Day Header */
+.day-header {
+  background-color: #63abff;
+  color: #ffffff;
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border-bottom: 1px solid #63abff;
+  text-transform: uppercase;
+}
+
+/* Time Slot */
+.hour-slot {
+  position: relative;
+  border-top: 1px solid #ced4da;
+  height: 12vh;
+  min-height: 60px;
+  background-color: #f1f3f5;
+}
+
+/* Event Styles */
+.event1 {
+  background-color: #007bff; /* Blue */
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.event2 {
+  background-color: #28a745; /* Green */
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.event3 {
+  background-color: #dc3545; /* Red */
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.event4 {
+  background-color: #ffc107; /* Yellow */
+  color: #343a40;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.hour{
+  margin: 10px;
+  font-size: 16px;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+/* Modern Circular Button */
+.circular-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin: 0 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.circular-button:hover {
+  transform: scale(1.1); /* Slightly increase size on hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.button-1 {
+  background-color: #007bff; /* Vibrant Blue */
+}
+
+.button-2 {
+  background-color: #28a745; /* Modern Green */
+}
+
+.button-3 {
+  background-color: #dc3545; /* Deep Red */
+}
+
+.button-4 {
+  background-color: #ffc107; /* Bold Yellow */
+}
+
+/* Responsive Button Size for smaller screens */
+@media (max-width: 576px) {
+  .circular-button {
+      width: 40px;
+      height: 40px;
+      font-size: 16px;
+  }
+}
